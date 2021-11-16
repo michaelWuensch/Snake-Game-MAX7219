@@ -110,9 +110,9 @@ def move():
 				LEDMatrix.gfx_render()
 				time.sleep(0.3)
 			if USE_JOYPAD:
-				print "Game Over. Score: " + str(len(tail)-1)
+				print ("Game Over. Score: " + str(len(tail)-1))
 			else:
-				print "Game Over. Press any Key to exit. Score: " + str(len(tail)-1)
+				print ("Game Over. Press any Key to exit. Score: " + str(len(tail)-1))
 			LEDMatrix.clear_all()
 			raise SystemExit("\n")
 		
@@ -140,7 +140,7 @@ if __name__ == "__main__":
 	if USE_JOYPAD:
 		# do not press several buttons once
 		try:
-			print "To end the game press <CTRL> + C"
+			print ("To end the game press <CTRL> + C")
 			# RPi.GPIO Layout (GPIO numbers)
 			GPIO.setmode(GPIO.BCM)
 			GPIO.setwarnings(False)
@@ -161,7 +161,7 @@ if __name__ == "__main__":
 				time.sleep(0.1)
 		except KeyboardInterrupt:
 			# CTRL + C
-			print "\nGoodbye"
+			print ("\nGoodbye")
 			LEDMatrix.clear_all()
 			time.sleep(0.1)
 			running = False
@@ -173,7 +173,7 @@ if __name__ == "__main__":
 		# Use Keyboard Arrows
 		from _Getch import _Getch
 		getch = _Getch()
-		print "To end the game press <q>"
+		print ("To end the game press <q>")
 		while running:
 			key = ord(getch())
 			if key == 27: #ESC
@@ -189,6 +189,6 @@ if __name__ == "__main__":
 					elif key == 68: #left arrow
 						changeDirection(DIR_L)
 			elif key == 113:
-				print "Goodbye"
+				print ("Goodbye")
 				running = False
 				break
